@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 10.0
 @export var jump_power = 10.0
+@onready var hero_animation: AnimatedSprite2D = $HeroAnimation
 
 var speed_multiplier = 30.0
 var jump_multiplier = -30.0
@@ -29,6 +30,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
 
 	move_and_slide()
+	_update_animation()
+
+
+func _update_animation() -> void:
+	var animation := "Jump" if not is_on_floor() else "Run" if direction else "Idle"
+	if hero_animation.animation != animation:
+		hero_animation.play(animation)
+	if direction:
+		hero_animation.flip_h = direction < 0
 
 
 		

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://iy3e5gfy1m5t" path="res://Sprites/Hero/Hero Sprite-Idle.png" id="2_lquwl"]
 [ext_resource type="Texture2D" uid="uid://bh3hq0j6so3sn" path="res://Sprites/Hero/Hero Sprite-Run.png" id="3_7mycd"]
 [ext_resource type="Texture2D" uid="uid://5dlvbt1rd0p7" path="res://Tiles/TilesetTemplate.png" id="4_272bh"]
+[ext_resource type="Texture2D" path="res://Sprites/Hero/Hero Sprite-Jump.png" id="5_jump"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rl1p"]
 texture = ExtResource("4_272bh")
@@ -597,6 +598,38 @@ region = Rect2(288, 0, 72, 64)
 atlas = ExtResource("2_lquwl")
 region = Rect2(360, 0, 72, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump0"]
+atlas = ExtResource("5_jump")
+region = Rect2(0, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump1"]
+atlas = ExtResource("5_jump")
+region = Rect2(72, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump2"]
+atlas = ExtResource("5_jump")
+region = Rect2(144, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump3"]
+atlas = ExtResource("5_jump")
+region = Rect2(216, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump4"]
+atlas = ExtResource("5_jump")
+region = Rect2(288, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump5"]
+atlas = ExtResource("5_jump")
+region = Rect2(360, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump6"]
+atlas = ExtResource("5_jump")
+region = Rect2(432, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jump7"]
+atlas = ExtResource("5_jump")
+region = Rect2(504, 0, 72, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lswn8"]
 atlas = ExtResource("3_7mycd")
 region = Rect2(0, 0, 72, 64)
@@ -705,10 +738,34 @@ animations = [{
 "name": &"Idle",
 "speed": 7.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"Jump",
-"speed": 5.0
+	"frames": [{
+	"duration": 1.0,
+	"texture": SubResource("AtlasTexture_jump0")
+	}, {
+	"duration": 1.0,
+	"texture": SubResource("AtlasTexture_jump1")
+	}, {
+	"duration": 1.0,
+	"texture": SubResource("AtlasTexture_jump2")
+	}, {
+	"duration": 1.0,
+	"texture": SubResource("AtlasTexture_jump3")
+	}, {
+	"duration": 1.0,
+	"texture": SubResource("AtlasTexture_jump4")
+	}, {
+	"duration": 1.0,
+	"texture": SubResource("AtlasTexture_jump5")
+	}, {
+	"duration": 1.0,
+	"texture": SubResource("AtlasTexture_jump6")
+	}, {
+	"duration": 1.0,
+	"texture": SubResource("AtlasTexture_jump7")
+	}],
+	"loop": true,
+	"name": &"Jump",
+	"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -759,6 +816,7 @@ jump_power = 11.0
 position = Vector2(6, -13)
 sprite_frames = SubResource("SpriteFrames_4k2k6")
 animation = &"Idle"
+autoplay = &"Idle"
 frame_progress = 0.06753434
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hero" unique_id=1667621474]
