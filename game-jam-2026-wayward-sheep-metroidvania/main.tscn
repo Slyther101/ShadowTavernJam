@@ -807,7 +807,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0rl1p")
 }],
-"loop": true,
+"loop": false,
 "name": &"AirStrike",
 "speed": 10.0
 }, {
@@ -864,7 +864,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_come4")
 }],
-"loop": true,
+"loop": false,
 "name": &"Damage",
 "speed": 11.0
 }, {
@@ -910,7 +910,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pjyto")
 }],
-"loop": true,
+"loop": false,
 "name": &"Die",
 "speed": 10.0
 }, {
@@ -1002,7 +1002,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jx0wj")
 }],
-"loop": true,
+"loop": false,
 "name": &"Push",
 "speed": 9.0
 }, {
@@ -1095,7 +1095,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yysqy")
 }],
-"loop": true,
+"loop": false,
 "name": &"ShadowStrike",
 "speed": 10.0
 }, {
@@ -1156,7 +1156,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wat4s")
 }],
-"loop": true,
+"loop": false,
 "name": &"SummonShadow",
 "speed": 10.0
 }]
