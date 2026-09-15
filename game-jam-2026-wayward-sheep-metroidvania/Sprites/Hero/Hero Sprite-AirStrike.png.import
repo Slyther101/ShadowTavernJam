@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5dlvbt1rd0p7"
-path="res://.godot/imported/TilesetTemplate.png-b724d834d8ec76341351bae51d78d500.ctex"
+uid="uid://cn7t6cv3ibcfm"
+path="res://.godot/imported/Hero Sprite-AirStrike.png-d52cbf8b254c180b0a1a07e942f90dcd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles/TilesetTemplate.png"
-dest_files=["res://.godot/imported/TilesetTemplate.png-b724d834d8ec76341351bae51d78d500.ctex"]
+source_file="res://Sprites/Hero/Hero Sprite-AirStrike.png"
+dest_files=["res://.godot/imported/Hero Sprite-AirStrike.png-d52cbf8b254c180b0a1a07e942f90dcd.ctex"]
 
 [params]
 

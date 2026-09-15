@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5dlvbt1rd0p7"
-path="res://.godot/imported/TilesetTemplate.png-b724d834d8ec76341351bae51d78d500.ctex"
+uid="uid://chl6a46eq0jx5"
+path="res://.godot/imported/Hero Sprite-ShadowStrike.png-f1afcf29397e56bab200f830015e6189.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles/TilesetTemplate.png"
-dest_files=["res://.godot/imported/TilesetTemplate.png-b724d834d8ec76341351bae51d78d500.ctex"]
+source_file="res://Sprites/Hero/Hero Sprite-ShadowStrike.png"
+dest_files=["res://.godot/imported/Hero Sprite-ShadowStrike.png-f1afcf29397e56bab200f830015e6189.ctex"]
 
 [params]
 

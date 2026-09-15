@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5dlvbt1rd0p7"
-path="res://.godot/imported/TilesetTemplate.png-b724d834d8ec76341351bae51d78d500.ctex"
+uid="uid://dd1shuldm572m"
+path="res://.godot/imported/Hero Sprite-SummonShadow.png-df7b06867006377a44222119a43f5d0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles/TilesetTemplate.png"
-dest_files=["res://.godot/imported/TilesetTemplate.png-b724d834d8ec76341351bae51d78d500.ctex"]
+source_file="res://Sprites/Hero/Hero Sprite-SummonShadow.png"
+dest_files=["res://.godot/imported/Hero Sprite-SummonShadow.png-df7b06867006377a44222119a43f5d0c.ctex"]
 
 [params]
 
