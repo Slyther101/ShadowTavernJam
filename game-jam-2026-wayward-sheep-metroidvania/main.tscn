@@ -1,6 +1,7 @@
-[gd_scene load_steps=185 format=4 uid="uid://exkjlx6xc0nj"]
+[gd_scene format=4 uid="uid://exkjlx6xc0nj"]
 
 [ext_resource type="Texture2D" uid="uid://bdkk7emqhsh81" path="res://Sprites/Hero/Hero Sprite-Attack.png" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://rw63sgroj8yc" path="res://Scripts/Game_Controler.gd" id="1_lswn8"]
 [ext_resource type="Script" uid="uid://jvtxp01klx4e" path="res://Scripts/Controler.gd" id="2_7mycd"]
 [ext_resource type="Texture2D" uid="uid://iy3e5gfy1m5t" path="res://Sprites/Hero/Hero Sprite-Idle.png" id="2_lquwl"]
 [ext_resource type="Texture2D" uid="uid://cn7t6cv3ibcfm" path="res://Sprites/Hero/Hero Sprite-AirStrike.png" id="3_5vw27"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://chl6a46eq0jx5" path="res://Sprites/Hero/Hero Sprite-ShadowStrike.png" id="13_xuqvo"]
 [ext_resource type="Texture2D" uid="uid://37svop2wktk8" path="res://Sprites/Hero/Hero Sprite-Slide.png" id="14_qsp4k"]
 [ext_resource type="Texture2D" uid="uid://dd1shuldm572m" path="res://Sprites/Hero/Hero Sprite-SummonShadow.png" id="15_kq58d"]
+[ext_resource type="Script" uid="uid://cd3hr1258lppy" path="res://Scripts/Shadow_Controler.gd" id="16_0odxb"]
 [ext_resource type="Texture2D" uid="uid://dptq3umud83su" path="res://Sprites/Shadow/Hero Sprite-ShadowAirAttack.png" id="16_seu75"]
 [ext_resource type="Texture2D" uid="uid://b7rtngt7iax5v" path="res://Sprites/Shadow/Hero Sprite-ShadowAttack.png" id="17_htxhm"]
 [ext_resource type="Texture2D" uid="uid://be08r6qiq02ax" path="res://Sprites/Shadow/Hero Sprite-ShadowDash.png" id="18_jq2sk"]
@@ -807,7 +809,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0rl1p")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AirStrike",
 "speed": 10.0
 }, {
@@ -830,7 +832,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w48qg")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack",
 "speed": 13.0
 }, {
@@ -847,7 +849,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hrvbo")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack 2",
 "speed": 13.0
 }, {
@@ -864,7 +866,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_come4")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Damage",
 "speed": 11.0
 }, {
@@ -884,7 +886,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4w656")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dash",
 "speed": 8.0
 }, {
@@ -910,12 +912,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pjyto")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Die",
 "speed": 10.0
 }, {
 "frames": [],
-"loop": false,
+"loop": 0,
 "name": &"Fall",
 "speed": 5.0
 }, {
@@ -938,7 +940,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1u8w0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 7.0
 }, {
@@ -967,7 +969,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_htxhm")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Jump",
 "speed": 10.0
 }, {
@@ -1002,7 +1004,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jx0wj")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Push",
 "speed": 9.0
 }, {
@@ -1031,7 +1033,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qnost")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Run",
 "speed": 12.0
 }, {
@@ -1063,7 +1065,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f1p13")
 }],
-"loop": true,
+"loop": 1,
 "name": &"ShadowDash",
 "speed": 10.0
 }, {
@@ -1095,7 +1097,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yysqy")
 }],
-"loop": false,
+"loop": 0,
 "name": &"ShadowStrike",
 "speed": 10.0
 }, {
@@ -1115,7 +1117,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_41lik")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slide",
 "speed": 8.0
 }, {
@@ -1156,13 +1158,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wat4s")
 }],
-"loop": false,
+"loop": 0,
 "name": &"SummonShadow",
 "speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
 size = Vector2(14, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr3c5"]
+size = Vector2(13, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywjan"]
 atlas = ExtResource("16_seu75")
@@ -1411,7 +1416,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_am8a1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"AirAttack",
 "speed": 9.0
 }, {
@@ -1434,7 +1439,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u81y6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Attack",
 "speed": 13.0
 }, {
@@ -1454,7 +1459,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_asu84")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dash",
 "speed": 8.0
 }, {
@@ -1477,7 +1482,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s4o1y")
 }],
-"loop": true,
+"loop": 0,
 "name": &"Disolve",
 "speed": 8.0
 }, {
@@ -1500,7 +1505,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2n44k")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 8.0
 }, {
@@ -1529,7 +1534,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t5kpo")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Jump",
 "speed": 7.0
 }, {
@@ -1564,7 +1569,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y0aao")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Push",
 "speed": 9.0
 }, {
@@ -1593,7 +1598,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4fmho")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Run",
 "speed": 11.0
 }, {
@@ -1613,46 +1618,49 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nycv6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slide",
 "speed": 9.0
 }]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1097206102]
+script = ExtResource("1_lswn8")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1866210704]
 position = Vector2(7, 0)
 tile_map_data = PackedByteArray("AAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAAEAAAAAAAFAAMAAAAFAAAAAAAJAAMAAAAGAAAAAAAJAAMAAAAHAAAAAAAJAAMAAAAIAAAAAAAJAAMAAAAJAAAAAAAJAAMAAAAKAAAAAAAJAAMAAAALAAAAAAAJAAMAAAAMAAAAAAAGAAMAAAAEAP//AAAIAAAAAAAFAP//AAAKAAAAAAAGAP//AAAFAAEAAAAHAP//AAAJAAIAAAAIAP//AAAJAAIAAAAJAP//AAAJAAIAAAAGAP7/AAAIAAAAAAAHAP7/AAAKAAAAAAAIAP7/AAAFAAEAAAAJAP7/AAAGAAEAAAAIAP3/AAAIAAAAAAAJAP3/AAALAAAAAAAKAP7/AAAKAAAAAAAKAP//AAAJAAIAAAALAP//AAAGAAEAAAAMAP//AAALAAAAAAALAP7/AAALAAAAAAANAAAAAAACAAMAAAAOAAAAAAACAAMAAAAPAAAAAAACAAMAAAAQAAAAAAACAAMAAAARAAAAAAACAAMAAAASAAAAAAACAAMAAAATAAAAAAAFAAMAAAATAP//AAAIAAEAAAATAP7/AAAFAAAAAAASAP7/AAACAAMAAAARAP7/AAABAAMAAAAUAP7/AAAKAAAAAAAVAP7/AAAGAAAAAAAUAP//AAAJAAIAAAAUAAAAAAAJAAMAAAAVAAAAAAAGAAMAAAAVAP//AAALAAIAAAAWAP7/AAACAAMAAAAXAP7/AAACAAMAAAAYAP7/AAADAAMAAAAWAAAAAAACAAMAAAAXAAAAAAACAAMAAAAYAAAAAAACAAMAAAAZAAAAAAACAAMAAAAaAP//AAAAAAAAAAAaAAAAAAACAAIAAAD+/wAAAAACAAMAAAD9/wAAAAACAAMAAAD8/wAAAAACAAMAAAD7/wAAAAABAAIAAAD7////AAAAAAEAAAD7//7/AAAAAAEAAAD7//3/AAAAAAEAAAD7//z/AAAAAAEAAAD7//v/AAAAAAEAAAD7//r/AAAAAAEAAAD7//n/AAAAAAEAAAAbAAAAAAACAAMAAAAcAP//AAAIAAAAAAAdAP//AAAKAAAAAAAeAP//AAAKAAAAAAAfAP//AAALAAAAAAAfAAAAAAALAAMAAAAeAAAAAAAJAAMAAAAdAAAAAAAJAAMAAAAcAAAAAAAFAAMAAAD7//j/AAABAAAAAAD8//j/AAACAAMAAAD9//j/AAACAAMAAAD+//j/AAACAAMAAAD///j/AAACAAMAAAAAAPj/AAACAAMAAAABAPj/AAACAAMAAAACAPj/AAACAAMAAAADAPj/AAACAAMAAAAEAPj/AAACAAMAAAAFAPj/AAAFAAAAAAAFAPn/AAAIAAMAAAAGAPn/AAAJAAMAAAAHAPn/AAAJAAMAAAAIAPn/AAAJAAMAAAAJAPn/AAAJAAMAAAAKAPn/AAAJAAMAAAALAPn/AAAJAAMAAAAMAPj/AAAKAAAAAAANAPj/AAAKAAAAAAAOAPj/AAAKAAAAAAAPAPj/AAAKAAAAAAAQAPj/AAAGAAAAAAARAPj/AAACAAMAAAASAPj/AAACAAMAAAATAPj/AAACAAMAAAAUAPj/AAACAAMAAAAVAPj/AAACAAMAAAAWAPj/AAACAAMAAAAXAPj/AAACAAMAAAAYAPj/AAACAAMAAAAZAPj/AAACAAMAAAAaAPj/AAACAAMAAAAbAPj/AAACAAMAAAAcAPj/AAADAAMAAAALAPj/AAAKAAAAAAAKAPj/AAAKAAAAAAAJAPj/AAAKAAAAAAAIAPj/AAAKAAAAAAAHAPj/AAAKAAAAAAAGAPj/AAAKAAAAAAAMAPn/AAAJAAMAAAANAPn/AAAFAAIAAAANAPr/AAAIAAMAAAAOAPr/AAAJAAMAAAAPAPr/AAALAAMAAAAPAPn/AAAGAAIAAAAQAPn/AAALAAMAAAAOAPn/AAAJAAIAAAA=")
 tile_set = SubResource("TileSet_ok6jj")
 
-[node name="Hero" type="CharacterBody2D" parent="."]
+[node name="Hero" type="CharacterBody2D" parent="." unique_id=2020253787]
 script = ExtResource("2_7mycd")
 speed = 6.0
 jump_power = 12.0
 
-[node name="HeroAnimation" type="AnimatedSprite2D" parent="Hero"]
+[node name="HeroAnimation" type="AnimatedSprite2D" parent="Hero" unique_id=2048084568]
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_4k2k6")
 animation = &"SummonShadow"
 autoplay = "Idle"
 frame_progress = 0.654717
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hero"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hero" unique_id=1741744702]
 position = Vector2(1, -14.5)
 shape = SubResource("RectangleShape2D_272bh")
 
-[node name="Camera2D" type="Camera2D" parent="Hero"]
+[node name="Camera2D" type="Camera2D" parent="Hero" unique_id=2005700342]
 position = Vector2(6, -13)
 offset = Vector2(0, -55)
 
-[node name="Animator" type="Node2D" parent="Hero"]
+[node name="Animator" type="Node2D" parent="Hero" unique_id=1697494153]
 
-[node name="Shadow" type="CharacterBody2D" parent="."]
+[node name="Shadow" type="CharacterBody2D" parent="." unique_id=2146076014]
+script = ExtResource("16_0odxb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shadow"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shadow" unique_id=1675379623]
+position = Vector2(38.5, -14)
+shape = SubResource("RectangleShape2D_pr3c5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shadow"]
-position = Vector2(28, -19)
+[node name="ShadowAnimation" type="AnimatedSprite2D" parent="Shadow" unique_id=804588929]
+position = Vector2(38, -19)
 sprite_frames = SubResource("SpriteFrames_x4ftd")
-animation = &"Idle"
-frame_progress = 0.353673
+animation = &"Disolve"

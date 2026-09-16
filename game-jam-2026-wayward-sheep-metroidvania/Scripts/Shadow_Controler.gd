@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @export var speed = 10.0
 @export var jump_power = 10.0
-@onready var hero_animation: AnimatedSprite2D = $HeroAnimation
-@export var is_controled = true
+@onready var shadow_animation: AnimatedSprite2D = $ShadowAnimation
+@export var is_controled = false
 
 const DASH_DURATION := 0.15
 const SHADOW_DASH_DURATION := 0.20
@@ -20,13 +20,14 @@ var attack_queued := false
 
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
+	print(action_name)
 	if is_controled:
+		visible = true
+		if not is_on_floor():
+			velocity += get_gravity() * delta
 		direction = Input.get_axis("Move Left", "Move Right")
 		if direction:
-			hero_animation.flip_h = direction < 0
+			shadow_animation.flip_h = direction < 0
 
 		if action_name == &"Attack" and Input.is_action_just_pressed("Attack"):
 			attack_queued = true
@@ -39,15 +40,14 @@ func _physics_process(delta: float) -> void:
 				_update_action(delta)
 			else:
 				_update_movement()
-	
+
 		move_and_slide()
 		if not action_name:
 			_update_animation()
-	elif action_name == &"SummonShadow" and hero_animation.is_playing() == false:
+	elif not shadow_animation.is_playing():
+		visible = false
 		action_name = ""
-		_update_animation()
-		_update_movement()
-		
+	
 
 
 func _try_start_action() -> void:
@@ -58,11 +58,11 @@ func _try_start_action() -> void:
 	elif Input.is_action_just_pressed("Test Push"):
 		_start_action(&"Push")
 	elif Input.is_action_just_pressed("Summon Shadow"):
-		_start_action(&"SummonShadow")
+		_start_action(&"Disolve",0.6)
 	elif Input.is_action_just_pressed("Shadow Strike"):
 		_start_action(&"ShadowStrike")
 	elif Input.is_action_just_pressed("Attack"):
-		_start_action(&"Attack" if is_on_floor() else &"AirStrike")
+		_start_action(&"Attack" if is_on_floor() else &"AirStrike",0.5)
 	elif Input.is_action_just_pressed("Dash") and is_on_floor():
 		_start_action(&"Dash", DASH_DURATION, 2.0)
 	elif Input.is_action_just_pressed("Shadow Dash") and is_on_floor():
@@ -73,12 +73,12 @@ func _try_start_action() -> void:
 		velocity.y = jump_power * jump_multiplier
 
 
-func _start_action(animation: StringName, duration := 0.0, multiplier := 0.0) -> void:
+func _start_action(animation: StringName, duration := 0.01, multiplier := 0.0) -> void:
 	action_name = animation
 	action_time = duration
 	action_multiplier = multiplier
-	action_direction = direction if direction else -1.0 if hero_animation.flip_h else 1.0
-	hero_animation.play(animation)
+	action_direction = direction if direction else -1.0 if shadow_animation.flip_h else 1.0
+	shadow_animation.play(animation)
 
 
 func _update_action(delta: float) -> void:
@@ -88,11 +88,11 @@ func _update_action(delta: float) -> void:
 		if action_time <= 0.0:
 			action_name = &""
 			velocity.x = 0.0
-			hero_animation.stop()
+			shadow_animation.stop()
 		return
 
 	velocity.x = 0.0
-	if hero_animation.is_playing():
+	if shadow_animation.is_playing():
 		return
 	if action_name == &"Die":
 		get_tree().reload_current_scene()
@@ -113,8 +113,8 @@ func _update_movement() -> void:
 
 func _update_animation() -> void:
 	var animation := "Jump" if not is_on_floor() else "Run" if direction else "Idle"
-	if hero_animation.animation != animation:
-		hero_animation.play(animation)
+	if shadow_animation.animation != animation:
+		shadow_animation.play(animation)
 
 
 		
