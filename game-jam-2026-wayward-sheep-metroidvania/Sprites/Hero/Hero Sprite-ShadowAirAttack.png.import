@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ixnig5ihqhot"
-path="res://.godot/imported/Hero Sprite-ShadowJump.png-a4c899620c1b2dba1734c41a589f0ae2.ctex"
+uid="uid://cmjk2kajbh1r6"
+path="res://.godot/imported/Hero Sprite-ShadowAirAttack.png-ca4821947af84ded8046a54b57c30315.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Shadow/Hero Sprite-ShadowJump.png"
-dest_files=["res://.godot/imported/Hero Sprite-ShadowJump.png-a4c899620c1b2dba1734c41a589f0ae2.ctex"]
+source_file="res://Sprites/Hero/Hero Sprite-ShadowAirAttack.png"
+dest_files=["res://.godot/imported/Hero Sprite-ShadowAirAttack.png-ca4821947af84ded8046a54b57c30315.ctex"]
 
 [params]
 

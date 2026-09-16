@@ -62,7 +62,7 @@ func _try_start_action() -> void:
 	elif Input.is_action_just_pressed("Shadow Strike"):
 		_start_action(&"ShadowStrike")
 	elif Input.is_action_just_pressed("Attack"):
-		_start_action(&"Attack" if is_on_floor() else &"AirStrike",0.5)
+		_start_action(&"Attack" if is_on_floor() else &"AirAttack",0.0)
 	elif Input.is_action_just_pressed("Dash") and is_on_floor():
 		_start_action(&"Dash", DASH_DURATION, 2.0)
 	elif Input.is_action_just_pressed("Shadow Dash") and is_on_floor():

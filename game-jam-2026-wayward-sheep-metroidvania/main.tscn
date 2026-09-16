@@ -22,9 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://be08r6qiq02ax" path="res://Sprites/Shadow/Hero Sprite-ShadowDash.png" id="18_jq2sk"]
 [ext_resource type="Texture2D" uid="uid://ca7pwmb2dm0jd" path="res://Sprites/Shadow/Hero Sprite-ShadowDisolve.png" id="19_4k2k6"]
 [ext_resource type="Texture2D" uid="uid://bitro4oc0u8tn" path="res://Sprites/Shadow/Hero Sprite-ShadowIdle.png" id="20_0rl1p"]
-[ext_resource type="Texture2D" uid="uid://iv4vbo67pif4" path="res://Sprites/Shadow/Hero Sprite-ShadowJump.png" id="21_ok6jj"]
 [ext_resource type="Texture2D" uid="uid://o75gwjtl2fp7" path="res://Sprites/Shadow/HeroSprite-ShadowPush.png" id="22_facbu"]
 [ext_resource type="Texture2D" uid="uid://cqwk3f1tv0dnk" path="res://Sprites/Shadow/Hero Sprite-ShadowRun.png" id="23_b1qrp"]
+[ext_resource type="Texture2D" uid="uid://ixnig5ihqhot" path="res://Sprites/Shadow/Hero Sprite-ShadowJump.png" id="24_a6jrf"]
 [ext_resource type="Texture2D" uid="uid://cwaoofwtnm26q" path="res://Sprites/Shadow/Hero Sprite-ShadowSlide.png" id="24_come4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rl1p"]
@@ -1278,35 +1278,67 @@ atlas = ExtResource("20_0rl1p")
 region = Rect2(445, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86lig"]
-atlas = ExtResource("21_ok6jj")
+atlas = ExtResource("24_a6jrf")
 region = Rect2(0, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldnlw"]
-atlas = ExtResource("21_ok6jj")
+atlas = ExtResource("24_a6jrf")
 region = Rect2(89, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qe8ju"]
-atlas = ExtResource("21_ok6jj")
+atlas = ExtResource("24_a6jrf")
 region = Rect2(178, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bnk2o"]
-atlas = ExtResource("21_ok6jj")
+atlas = ExtResource("24_a6jrf")
 region = Rect2(267, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oosfy"]
-atlas = ExtResource("21_ok6jj")
+atlas = ExtResource("24_a6jrf")
 region = Rect2(356, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nf4f2"]
-atlas = ExtResource("21_ok6jj")
+atlas = ExtResource("24_a6jrf")
 region = Rect2(445, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xkvoa"]
-atlas = ExtResource("21_ok6jj")
+atlas = ExtResource("24_a6jrf")
 region = Rect2(534, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5kpo"]
-atlas = ExtResource("21_ok6jj")
+atlas = ExtResource("24_a6jrf")
+region = Rect2(623, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4ftd"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(0, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arf1h"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(89, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0om5"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(178, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkfde"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(267, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qxq8"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(356, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryg4g"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(445, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy6td"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(534, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe76k"]
+atlas = ExtResource("24_a6jrf")
 region = Rect2(623, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pw0td"]
@@ -1404,21 +1436,21 @@ region = Rect2(356, 0, 89, 76)
 [sub_resource type="SpriteFrames" id="SpriteFrames_x4ftd"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 1.6,
 "texture": SubResource("AtlasTexture_ywjan")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m74q3")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_tko6h")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_am8a1")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"AirAttack",
-"speed": 9.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1439,7 +1471,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u81y6")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Attack",
 "speed": 13.0
 }, {
@@ -1533,6 +1565,30 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t5kpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4ftd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arf1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0om5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkfde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qxq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryg4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy6td")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe76k")
 }],
 "loop": 1,
 "name": &"Jump",
@@ -1664,4 +1720,4 @@ shape = SubResource("RectangleShape2D_pr3c5")
 [node name="ShadowAnimation" type="AnimatedSprite2D" parent="Shadow" unique_id=804588929]
 position = Vector2(38, -19)
 sprite_frames = SubResource("SpriteFrames_x4ftd")
-animation = &"Disolve"
+animation = &"AirAttack"
