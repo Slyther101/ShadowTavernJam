@@ -6,7 +6,6 @@ extends CharacterBody2D
 @export var is_controled = true
 
 const DASH_DURATION := 0.15
-const SHADOW_DASH_DURATION := 0.20
 const SLIDE_DURATION := 0.25
 
 var speed_multiplier = 30.0
@@ -66,7 +65,7 @@ func _try_start_action() -> void:
 	elif Input.is_action_just_pressed("Dash") and is_on_floor():
 		_start_action(&"Dash", DASH_DURATION, 2.0)
 	elif Input.is_action_just_pressed("Shadow Dash") and is_on_floor():
-		_start_action(&"ShadowDash", SHADOW_DASH_DURATION, 3.0)
+		_start_action(&"ShadowDash")
 	elif Input.is_action_just_pressed("Slide") and is_on_floor():
 		_start_action(&"Slide", SLIDE_DURATION, 1.0)
 	elif Input.is_action_just_pressed("Jump") and is_on_floor():

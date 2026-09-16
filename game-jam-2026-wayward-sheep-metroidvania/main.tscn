@@ -656,39 +656,39 @@ region = Rect2(623, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkkcx"]
 atlas = ExtResource("12_a6jrf")
-region = Rect2(0, 0, 135, 64)
+region = Rect2(0, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_34ol3"]
 atlas = ExtResource("12_a6jrf")
-region = Rect2(135, 0, 135, 64)
+region = Rect2(89, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2n8d"]
 atlas = ExtResource("12_a6jrf")
-region = Rect2(270, 0, 135, 64)
+region = Rect2(178, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy5fy"]
 atlas = ExtResource("12_a6jrf")
-region = Rect2(405, 0, 135, 64)
+region = Rect2(267, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx4rg"]
 atlas = ExtResource("12_a6jrf")
-region = Rect2(540, 0, 135, 64)
+region = Rect2(356, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dllo"]
 atlas = ExtResource("12_a6jrf")
-region = Rect2(675, 0, 135, 64)
+region = Rect2(445, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_phcyf"]
 atlas = ExtResource("12_a6jrf")
-region = Rect2(810, 0, 135, 64)
+region = Rect2(534, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_birbe"]
 atlas = ExtResource("12_a6jrf")
-region = Rect2(945, 0, 135, 64)
+region = Rect2(623, 0, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1p13"]
 atlas = ExtResource("12_a6jrf")
-region = Rect2(0, 64, 135, 64)
+region = Rect2(0, 76, 89, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4obbf"]
 atlas = ExtResource("13_xuqvo")
@@ -1065,9 +1065,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f1p13")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"ShadowDash",
-"speed": 10.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1639,9 +1639,8 @@ jump_power = 12.0
 [node name="HeroAnimation" type="AnimatedSprite2D" parent="Hero" unique_id=2048084568]
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_4k2k6")
-animation = &"SummonShadow"
+animation = &"ShadowDash"
 autoplay = "Idle"
-frame_progress = 0.654717
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hero" unique_id=1741744702]
 position = Vector2(1, -14.5)
@@ -1654,9 +1653,11 @@ offset = Vector2(0, -55)
 [node name="Animator" type="Node2D" parent="Hero" unique_id=1697494153]
 
 [node name="Shadow" type="CharacterBody2D" parent="." unique_id=2146076014]
+position = Vector2(-152, 0)
 script = ExtResource("16_0odxb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shadow" unique_id=1675379623]
+visible = false
 position = Vector2(38.5, -14)
 shape = SubResource("RectangleShape2D_pr3c5")
 
