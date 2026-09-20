@@ -16,11 +16,60 @@ var action_time := 0.0
 var action_multiplier := 0.0
 var action_direction := 1.0
 var attack_queued := false
+@export var max_health := 5
+var health := 5
+var hurt_cooldown := 0.0
+var swing_hit := false
+@onready var health_bar: TextureProgressBar = $"HealthBar&Housing"
+
+
+func _ready() -> void:
+	health = max_health
+	hero_animation.frame_changed.connect(_on_combat_frame)
+	_update_health_display()
+
+
+func _update_health_display() -> void:
+	health_bar.max_value = max_health
+	health_bar.value = health
+
+
+func take_damage(amount: int) -> void:
+	if health <= 0 or hurt_cooldown > 0.0:
+		return
+	health = maxi(0, health - amount)
+	hurt_cooldown = 1.2
+	attack_queued = false
+	_start_action(&"Die" if health == 0 else &"Damage")
+	_update_health_display()
+
+
+func _on_combat_frame() -> void:
+	if swing_hit or action_name not in [&"Attack", &"Attack 2", &"AirStrike", &"ShadowStrike", &"ShadowDash"] or hero_animation.frame < 2:
+		return
+	swing_hit = true
+	var reach := 54.0 if action_name in [&"ShadowStrike", &"ShadowDash"] else 40.0
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		var offset: Vector2 = enemy.sprite.global_position - hero_animation.global_position
+		if absf(offset.x) > reach or absf(offset.y) > 30.0 or offset.x * action_direction < -5.0:
+			continue
+		var ray := PhysicsRayQueryParameters2D.create(hero_animation.global_position, enemy.sprite.global_position, 1)
+		if get_world_2d().direct_space_state.intersect_ray(ray).is_empty():
+			enemy.take_damage(1, global_position)
 
 
 func _physics_process(delta: float) -> void:
+	hurt_cooldown = maxf(0.0, hurt_cooldown - delta)
+	hero_animation.modulate.a = 0.5 if hurt_cooldown > 0.0 and int(hurt_cooldown * 12.0) % 2 == 0 else 1.0
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	# Damage and death must finish even while the shadow is controlled.
+	if action_name in [&"Damage", &"Die"]:
+		_update_action(delta)
+		move_and_slide()
+		if not action_name:
+			_update_animation()
+		return
 
 	if is_controled:
 		direction = Input.get_axis("Move Left", "Move Right")
@@ -73,6 +122,7 @@ func _try_start_action() -> void:
 
 
 func _start_action(animation: StringName, duration := 0.0, multiplier := 0.0) -> void:
+	swing_hit = false
 	action_name = animation
 	action_time = duration
 	action_multiplier = multiplier

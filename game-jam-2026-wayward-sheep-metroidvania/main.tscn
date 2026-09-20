@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://exkjlx6xc0nj"]
 
+[ext_resource type="Script" path="res://Scripts/Zombie_Controler.gd" id="33_zombie"]
+
 [ext_resource type="Texture2D" uid="uid://bdkk7emqhsh81" path="res://Sprites/Hero/Hero Sprite-Attack.png" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://rw63sgroj8yc" path="res://Scripts/Game_Controler.gd" id="1_lswn8"]
 [ext_resource type="Script" uid="uid://jvtxp01klx4e" path="res://Scripts/Controler.gd" id="2_7mycd"]
@@ -5367,8 +5369,7 @@ size = Vector2(14, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hfpe"]
 atlas = ExtResource("18_xuqvo")
-region = Rect2(7.879551, 79, 74.57541, 7.823593)
-margin = Rect2(19, 14, 0, 0)
+region = Rect2(8, 79, 75, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5pln"]
 atlas = ExtResource("18_xuqvo")
@@ -6251,6 +6252,7 @@ tile_map_data = PackedByteArray("AAAkAAAAAAAIAA8AAAAkAP//AAAIAA0AAAAkAP7/AAAIAA0
 tile_set = SubResource("TileSet_gb3uu")
 
 [node name="Hero" type="CharacterBody2D" parent="." unique_id=2020253787]
+collision_layer = 4
 position = Vector2(-2, -190)
 script = ExtResource("2_7mycd")
 speed = 6.0
@@ -6277,7 +6279,10 @@ offset_left = -149.0
 offset_top = -156.0
 offset_right = -49.0
 offset_bottom = -116.0
-texture_under = SubResource("AtlasTexture_1hfpe")
+max_value = 5.0
+value = 5.0
+texture_progress = SubResource("AtlasTexture_1hfpe")
+texture_progress_offset = Vector2(19, 14)
 texture_over = SubResource("AtlasTexture_p5pln")
 
 [node name="Stamina" type="TextureProgressBar" parent="Hero" unique_id=1237936271]
@@ -6295,6 +6300,7 @@ offset_bottom = -114.0
 texture_under = SubResource("AtlasTexture_ootmt")
 
 [node name="Shadow" type="CharacterBody2D" parent="." unique_id=2146076014]
+collision_layer = 8
 position = Vector2(-152, 0)
 script = ExtResource("16_0odxb")
 
@@ -6309,6 +6315,8 @@ sprite_frames = SubResource("SpriteFrames_x4ftd")
 animation = &"AirAttack"
 
 [node name="Zombie" type="CharacterBody2D" parent="." unique_id=1801638677]
+collision_layer = 2
+script = ExtResource("33_zombie")
 position = Vector2(271, -13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zombie" unique_id=131529618]
