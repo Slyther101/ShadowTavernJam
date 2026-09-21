@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Game Jam 2026 Wayward Sheep Metroidvania"
-run/main_scene="res://main.tscn"
+run/main_scene="uid://b7k7r0ttcrgqb"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
