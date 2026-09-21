@@ -4833,11 +4833,6 @@ shape = SubResource("RectangleShape2D_272bh")
 position = Vector2(6, -13)
 offset = Vector2(0, -55)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Hero/Camera2D" unique_id=633323917]
-stream = ExtResource("19_0rl1p")
-autoplay = true
-parameters/looping = true
-
 [node name="Animator" type="Node2D" parent="Hero" unique_id=1697494153]
 
 [node name="HealthBar&Housing" type="TextureProgressBar" parent="Hero" unique_id=551493552]
@@ -5012,3 +5007,8 @@ position = Vector2(6964, -1105)
 
 [node name="Bat14" parent="." unique_id=1661090394 instance=ExtResource("34_b1qrp")]
 position = Vector2(7250, -1136)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=633323917]
+stream = ExtResource("19_0rl1p")
+autoplay = true
+parameters/looping = true

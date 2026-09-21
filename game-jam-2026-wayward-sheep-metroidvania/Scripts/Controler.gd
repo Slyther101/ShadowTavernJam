@@ -20,7 +20,7 @@ var attack_queued := false
 var health := 5
 var hurt_cooldown := 0.0
 var swing_hit := false
-@onready var health_bar: TextureProgressBar = $"Camera2D/HealthBar&Housing"
+@onready var health_bar: TextureProgressBar = $"HealthBar&Housing"
 
 @onready var resource: DialogueResource = load(DMSettings.get_user_value("run_resource_path"))
 
