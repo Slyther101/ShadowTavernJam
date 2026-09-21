@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dhyuow7rq74yr" path="res://Sprites/TitleScreen/TitleScreenGameStart.png" id="1_fnlyl"]
 [ext_resource type="Texture2D" uid="uid://dism0nepfaucq" path="res://Sprites/TitleScreen/TitleScreenPlain.png" id="2_pkhjh"]
+[ext_resource type="AudioStream" uid="uid://bhisj8tag73cl" path="res://Menu.ogg" id="3_1xr1c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1xr1c"]
 atlas = ExtResource("1_fnlyl")
@@ -29,4 +30,9 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2015934091]
 sprite_frames = SubResource("SpriteFrames_1hfpe")
-frame_progress = 0.29921418
+frame_progress = 0.33356294
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2007026949]
+stream = ExtResource("3_1xr1c")
+autoplay = true
+parameters/looping = true
