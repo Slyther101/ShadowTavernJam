@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qhp8cxd7n7yt"
-path="res://.godot/imported/region.svg-763210ef0d4111f04ca2a72b7ccabcd8.ctex"
+uid="uid://d1aawtj2vsnxx"
+path="res://.godot/imported/cue.svg-9417a7473d6bdedbede8aaea1abc9540.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://godot_dialogue_manager-4.1.0/addons/dialogue_manager/assets/region.svg"
-dest_files=["res://.godot/imported/region.svg-763210ef0d4111f04ca2a72b7ccabcd8.ctex"]
+source_file="res://addons/dialogue_manager/assets/cue.svg"
+dest_files=["res://.godot/imported/cue.svg-9417a7473d6bdedbede8aaea1abc9540.ctex"]
 
 [params]
 

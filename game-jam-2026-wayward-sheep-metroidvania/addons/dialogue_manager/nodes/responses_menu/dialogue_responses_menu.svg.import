@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c22t5famre1yo"
-path="res://.godot/imported/dialogue_state_context.svg-c48ee585eb54b6a6ec051e0104d75f15.ctex"
+uid="uid://drjfciwitjm83"
+path="res://.godot/imported/dialogue_responses_menu.svg-c2f1aeac68c19756dc5732e31dba2439.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://godot_dialogue_manager-4.1.0/addons/dialogue_manager/nodes/context/dialogue_state_context.svg"
-dest_files=["res://.godot/imported/dialogue_state_context.svg-c48ee585eb54b6a6ec051e0104d75f15.ctex"]
+source_file="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.svg"
+dest_files=["res://.godot/imported/dialogue_responses_menu.svg-c2f1aeac68c19756dc5732e31dba2439.ctex"]
 
 [params]
 

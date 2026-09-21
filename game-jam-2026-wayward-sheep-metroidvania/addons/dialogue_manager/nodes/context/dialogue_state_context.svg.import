@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1aawtj2vsnxx"
-path="res://.godot/imported/cue.svg-63e2ead02d3ba46229972753b5764e38.ctex"
+uid="uid://c22t5famre1yo"
+path="res://.godot/imported/dialogue_state_context.svg-767b17bec3f66ee3adfc460e2805a08f.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://godot_dialogue_manager-4.1.0/addons/dialogue_manager/assets/cue.svg"
-dest_files=["res://.godot/imported/cue.svg-63e2ead02d3ba46229972753b5764e38.ctex"]
+source_file="res://addons/dialogue_manager/nodes/context/dialogue_state_context.svg"
+dest_files=["res://.godot/imported/dialogue_state_context.svg-767b17bec3f66ee3adfc460e2805a08f.ctex"]
 
 [params]
 
@@ -41,4 +41,4 @@ process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
 editor/scale_with_editor_scale=true
-editor/convert_colors_with_editor_theme=false
+editor/convert_colors_with_editor_theme=true

@@ -20,10 +20,12 @@
 [ext_resource type="Script" uid="uid://cd3hr1258lppy" path="res://Scripts/Shadow_Controler.gd" id="16_0odxb"]
 [ext_resource type="Texture2D" uid="uid://dptq3umud83su" path="res://Sprites/Shadow/Hero Sprite-ShadowAirAttack.png" id="16_seu75"]
 [ext_resource type="Texture2D" uid="uid://b7rtngt7iax5v" path="res://Sprites/Shadow/Hero Sprite-ShadowAttack.png" id="17_htxhm"]
+[ext_resource type="Script" uid="uid://l7ul8ghy5j3x" path="res://Scripts/camera_2d.gd" id="18_4k2k6"]
 [ext_resource type="Texture2D" uid="uid://be08r6qiq02ax" path="res://Sprites/Shadow/Hero Sprite-ShadowDash.png" id="18_jq2sk"]
 [ext_resource type="Texture2D" uid="uid://bsth55acspefk" path="res://Sprites/Assets/HealthBar.png" id="18_xuqvo"]
 [ext_resource type="Texture2D" uid="uid://ca7pwmb2dm0jd" path="res://Sprites/Shadow/Hero Sprite-ShadowDisolve.png" id="19_4k2k6"]
 [ext_resource type="Texture2D" uid="uid://bitro4oc0u8tn" path="res://Sprites/Shadow/Hero Sprite-ShadowIdle.png" id="20_0rl1p"]
+[ext_resource type="PackedScene" uid="uid://cldhgnr2gsunp" path="res://Dialogues/balloon.tscn" id="20_facbu"]
 [ext_resource type="Texture2D" uid="uid://o75gwjtl2fp7" path="res://Sprites/Shadow/HeroSprite-ShadowPush.png" id="22_facbu"]
 [ext_resource type="Texture2D" uid="uid://cqwk3f1tv0dnk" path="res://Sprites/Shadow/Hero Sprite-ShadowRun.png" id="23_b1qrp"]
 [ext_resource type="Texture2D" uid="uid://ixnig5ihqhot" path="res://Sprites/Shadow/Hero Sprite-ShadowJump.png" id="24_a6jrf"]
@@ -33,6 +35,8 @@
 [ext_resource type="Texture2D" uid="uid://cdxfpqyaoim6j" path="res://Sprites/Enemies/ZombieIdle.png" id="31_4k2k6"]
 [ext_resource type="Texture2D" uid="uid://b0dsa0s4kfpay" path="res://Sprites/Enemies/Zombiewalk.png" id="32_0rl1p"]
 [ext_resource type="Script" uid="uid://c40rl7xc0qoke" path="res://Scripts/Zombie_Controler.gd" id="33_zombie"]
+[ext_resource type="Script" uid="uid://cqcur1rm7433g" path="res://addons/dialogue_manager/nodes/actionable/dialogue_actionable_2d.gd" id="35_ok6jj"]
+[ext_resource type="Resource" uid="uid://c5eaqaegf0ua6" path="res://Dialogues/Test.dialogue" id="36_facbu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4k2k6"]
 texture = ExtResource("2_a6jrf")
@@ -6222,6 +6226,59 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(27, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7qqv"]
+atlas = ExtResource("20_0rl1p")
+region = Rect2(0, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gvdc"]
+atlas = ExtResource("20_0rl1p")
+region = Rect2(89, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0sjo"]
+atlas = ExtResource("20_0rl1p")
+region = Rect2(178, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqsbb"]
+atlas = ExtResource("20_0rl1p")
+region = Rect2(267, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfi32"]
+atlas = ExtResource("20_0rl1p")
+region = Rect2(356, 0, 89, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12204"]
+atlas = ExtResource("20_0rl1p")
+region = Rect2(445, 0, 89, 76)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7qqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gvdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0sjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqsbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfi32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12204")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Main" type="Node2D" unique_id=1097206102]
 script = ExtResource("1_lswn8")
 
@@ -6282,46 +6339,47 @@ shape = SubResource("RectangleShape2D_272bh")
 [node name="Camera2D" type="Camera2D" parent="Hero" unique_id=2005700342]
 position = Vector2(6, -13)
 offset = Vector2(0, -55)
+script = ExtResource("18_4k2k6")
 
-[node name="Animator" type="Node2D" parent="Hero" unique_id=1697494153]
-
-[node name="HealthBar&Housing" type="TextureProgressBar" parent="Hero" unique_id=551493552]
-offset_left = -149.0
-offset_top = -156.0
-offset_right = -49.0
-offset_bottom = -116.0
+[node name="HealthBar&Housing" type="TextureProgressBar" parent="Hero/Camera2D" unique_id=551493552]
+offset_left = -155.0
+offset_top = -143.0
+offset_right = -55.0
+offset_bottom = -103.0
 max_value = 5.0
 value = 5.0
 texture_over = SubResource("AtlasTexture_p5pln")
 texture_progress = SubResource("AtlasTexture_1hfpe")
 texture_progress_offset = Vector2(19, 14)
 
-[node name="Stamina" type="TextureProgressBar" parent="Hero" unique_id=1237936271]
-offset_left = -134.0
-offset_top = -135.0
-offset_right = -74.0
-offset_bottom = -95.0
+[node name="Stamina" type="TextureProgressBar" parent="Hero/Camera2D" unique_id=1237936271]
+offset_left = -140.0
+offset_top = -122.0
+offset_right = -80.0
+offset_bottom = -82.0
 texture_under = SubResource("AtlasTexture_gb3uu")
 
-[node name="Magic" type="TextureProgressBar" parent="Hero" unique_id=1931943716]
-offset_left = -146.0
-offset_top = -154.0
-offset_right = -106.0
-offset_bottom = -114.0
+[node name="Magic" type="TextureProgressBar" parent="Hero/Camera2D" unique_id=1931943716]
+offset_left = -152.0
+offset_top = -141.0
+offset_right = -112.0
+offset_bottom = -101.0
 texture_under = SubResource("AtlasTexture_ootmt")
 
+[node name="ExampleBalloon" parent="Hero/Camera2D" unique_id=1912754290 instance=ExtResource("20_facbu")]
+
+[node name="Animator" type="Node2D" parent="Hero" unique_id=1697494153]
+
 [node name="Shadow" type="CharacterBody2D" parent="." unique_id=2146076014]
-position = Vector2(-152, 0)
 collision_layer = 8
 script = ExtResource("16_0odxb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shadow" unique_id=1675379623]
-visible = false
-position = Vector2(38.5, -14)
+position = Vector2(-1, -14)
 shape = SubResource("RectangleShape2D_pr3c5")
 
 [node name="ShadowAnimation" type="AnimatedSprite2D" parent="Shadow" unique_id=804588929]
-position = Vector2(38, -19)
+position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_x4ftd")
 animation = &"AirAttack"
 
@@ -6337,3 +6395,17 @@ shape = SubResource("RectangleShape2D_gb3uu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Zombie" unique_id=1078985328]
 sprite_frames = SubResource("SpriteFrames_1hfpe")
 animation = &"Idle"
+
+[node name="DialogueActionable2D" type="Area2D" parent="." unique_id=1147615903]
+position = Vector2(80, -20)
+script = ExtResource("35_ok6jj")
+dialogue_resource = ExtResource("36_facbu")
+dialogue_cue = "start"
+metadata/_custom_type_script = "uid://cqcur1rm7433g"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueActionable2D" unique_id=1530109981]
+position = Vector2(1.5, 1)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialogueActionable2D" unique_id=51637342]
+sprite_frames = SubResource("SpriteFrames_g4v7s")

@@ -20,8 +20,9 @@ var attack_queued := false
 var health := 5
 var hurt_cooldown := 0.0
 var swing_hit := false
-@onready var health_bar: TextureProgressBar = $"HealthBar&Housing"
+@onready var health_bar: TextureProgressBar = $"Camera2D/HealthBar&Housing"
 
+@onready var resource: DialogueResource = load(DMSettings.get_user_value("run_resource_path"))
 
 func _ready() -> void:
 	health = max_health
@@ -91,11 +92,10 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		if not action_name:
 			_update_animation()
-	elif action_name == &"SummonShadow" and hero_animation.is_playing() == false:
+	if action_name == &"SummonShadow" and hero_animation.is_playing() == false:
 		action_name = ""
 		_update_animation()
 		_update_movement()
-		
 
 
 func _try_start_action() -> void:
