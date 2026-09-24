@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed = 10.0
 @export var jump_power = 10.0
 @onready var hero_animation: AnimatedSprite2D = $HeroAnimation
+@onready var hero_camera: Camera2D = $Camera2D
+const SHADOW_DASH_PROJECTILE = preload("res://shadow_dash_projectile.tscn")
 @export var is_controled = true
 
 const DASH_DURATION := 0.15
@@ -20,7 +22,7 @@ var attack_queued := false
 var health := 5
 var hurt_cooldown := 0.0
 var swing_hit := false
-@onready var health_bar: TextureProgressBar = $"HealthBar&Housing"
+@onready var health_bar: TextureProgressBar = $"../HUD/HealthBar&Housing"
 
 
 func _ready() -> void:
@@ -48,7 +50,14 @@ func _on_combat_frame() -> void:
 	if swing_hit or action_name not in [&"Attack", &"Attack 2", &"AirStrike", &"ShadowStrike", &"ShadowDash"] or hero_animation.frame < 2:
 		return
 	swing_hit = true
-	var reach := 54.0 if action_name in [&"ShadowStrike", &"ShadowDash"] else 40.0
+	if action_name == &"ShadowDash":
+		var projectile := SHADOW_DASH_PROJECTILE.instantiate() as AnimatedSprite2D
+		projectile.set("direction", action_direction)
+		projectile.connect("finished", _on_shadow_dash_projectile_finished)
+		get_tree().current_scene.add_child(projectile)
+		projectile.global_position = hero_animation.global_position + Vector2(action_direction * 20.0, 0.0)
+		return
+	var reach := 54.0 if action_name == &"ShadowStrike" else 40.0
 	for enemy in get_tree().get_nodes_in_group("enemies"):
 		var offset: Vector2 = enemy.sprite.global_position - hero_animation.global_position
 		if absf(offset.x) > reach or absf(offset.y) > 30.0 or offset.x * action_direction < -5.0:
@@ -56,6 +65,20 @@ func _on_combat_frame() -> void:
 		var ray := PhysicsRayQueryParameters2D.create(hero_animation.global_position, enemy.sprite.global_position, 1)
 		if get_world_2d().direct_space_state.intersect_ray(ray).is_empty():
 			enemy.take_damage(1, global_position)
+
+
+func _on_shadow_dash_projectile_finished(end_position: Vector2) -> void:
+	if action_name != &"ShadowDash":
+		return
+	var travel := Vector2(end_position.x - global_position.x, 0.0)
+	var collision := move_and_collide(travel, true)
+	if collision:
+		travel = collision.get_travel()
+	var camera_offset := hero_camera.offset
+	hero_camera.offset -= travel
+	global_position += travel
+	create_tween().tween_property(hero_camera, "offset", camera_offset, 0.45).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	velocity.x = 0.0
 
 
 func _physics_process(delta: float) -> void:
